@@ -46,5 +46,7 @@ char *palindrome(char const *str) {
     answer[2] = '\0';
   }
 
+  free(rev); // Free the allocated memory for rev
+
   return answer;
 }
