@@ -4,13 +4,14 @@
 #include "disemvowel.h"
 
 int main(int argc, char *argv[]) {
-  char *line;
-  size_t size;
+  char *line = NULL;
+  size_t size = 0;
   
-  size = 100;
-  line = (char*) malloc (size + 1);
-
   while (getline(&line, &size, stdin) > 0) {
-    printf("%s\n", disemvowel(line));
+    char *result = disemvowel(line);
+    printf("%s\n", result);
+    free(result); // Free the allocated memory for result
   }
+
+  free(line); // Free the allocated memory for line
 }
